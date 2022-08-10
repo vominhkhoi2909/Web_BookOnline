@@ -1,0 +1,60 @@
+﻿@model IEnumerable<BookOnline.Models.Category>
+
+@{
+    ViewData["Title"] = "Thể Loại";
+}
+
+@section ScriptsAlert{ 
+    <script>
+        setTimeout(function () {
+            $('#msgAlert').fadeOut('slow');
+        }, 2000);
+    </script>
+}
+
+<h1>Danh Sách Thể Loại</h1>
+
+<p>
+    <button class="btn btn-outline-success">
+        <a asp-action="Create">Thêm mới thể loại</a>
+    </button>
+</p>
+<table class="table">
+    @if (ViewBag.Success != null)
+    {
+        <div id="msgAlert" class="alert alert-success" role="alert">@ViewBag.Success</div>
+    }
+    @if (ViewBag.Fail != null)
+    {
+        <div id="msgAlert" class="alert alert-danger" role="alert">@ViewBag.Fail</div>
+    }
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Tên thể loại")
+            </th>
+            <th>
+                @Html.DisplayName("Tên hệ thống")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category_DataName)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Category_Id">Chỉ Tiết</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Category_Id">Sửa</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Category_Id">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

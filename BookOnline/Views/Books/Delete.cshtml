@@ -1,0 +1,74 @@
+﻿@model BookOnline.Models.Book
+
+@{
+    ViewData["Title"] = "Xóa";
+}
+
+<h1>Xóa Thông Tin Sách</h1>
+
+<h3>Bạn chắc chắn muốn xóa thể loại này?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayName("Tên sách")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book_Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Tác giả")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book_Author)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Nội dung")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book_Content)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Tóm tắt nội dung")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book_ShortContent)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Thể loại")
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.Cat_Name
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Bìa")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book_Img)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Ngày cập nhật")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book_Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("NXB")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book_NXB)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Lượt xem")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book_View)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Book_Id" />
+        <input type="submit" value="Xác Nhận Xóa" class="btn btn-danger" onclick="return confirm('Bạn chắc chắn muốn xóa thể loại này?')" /> |
+        <a asp-action="Index">Quay lại danh sách</a>
+    </form>
+</div>

@@ -1,0 +1,62 @@
+﻿@model BookOnline.Models.Book
+
+@{
+    ViewData["Title"] = "Thêm Mới";
+}
+
+<h1>Thêm Mới Sách</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Tên sách</label>
+                <input asp-for="Book_Name" class="form-control" />
+                <span asp-validation-for="Book_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Tác giả</label>
+                <input asp-for="Book_Author" class="form-control" />
+                <span asp-validation-for="Book_Author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Nội dung</label>
+                <input asp-for="Book_Content" type="file" class="form-control" />
+                <span asp-validation-for="Book_Content" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Tóm tắt nội dung</label>
+                <input asp-for="Book_ShortContent" class="form-control" />
+                <span asp-validation-for="Book_ShortContent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Thể loại</label>
+                <select asp-for="Book_Category" class="form-control" asp-items="ViewBag.CatId"></select>
+                <span asp-validation-for="Book_Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Bìa</label>
+                <input asp-for="Book_Img" type="file" class="form-control" />
+                <span asp-validation-for="Book_Img" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">NXB</label>
+                <input asp-for="Book_NXB" class="form-control" />
+                <span asp-validation-for="Book_NXB" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Quay lại danh sách</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

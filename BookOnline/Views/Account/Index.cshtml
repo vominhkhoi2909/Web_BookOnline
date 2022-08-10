@@ -1,0 +1,79 @@
+﻿@model IEnumerable<BookOnline.Models.Account>
+
+@{
+    ViewData["Title"] = "Tài Khoản";
+}
+
+@section ScriptsAlert{
+    <script>
+        setTimeout(function () {
+            $('#msgAlert').fadeOut('slow');
+        }, 2000);
+    </script>
+}
+
+<h1>Danh Sách Tài Khoản</h1>
+
+<p>
+    <button class="btn btn-outline-success">
+        <a asp-action="Create">Thêm mới tài khoản quản trị</a>
+    </button>
+</p>
+<table class="table">
+    @if (ViewBag.Success != null)
+    {
+        <div id="msgAlert" class="alert alert-success" role="alert">@ViewBag.Success</div>
+    }
+    @if (ViewBag.Fail != null)
+    {
+        <div id="msgAlert" class="alert alert-danger" role="alert">@ViewBag.Fail</div>
+    }
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Tên tài khoản")
+            </th>
+            <th>
+                @Html.DisplayName("Email")
+            </th>
+            <th>
+                @Html.DisplayName("Số điện thoại")
+            </th>
+            <th>
+                @Html.DisplayName("Loại tài khoản")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Account_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Account_Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Account_Phone)
+                </td>
+                <td>
+                    @if (item.Account_Type == 1)
+                    {
+                        @Html.DisplayName("Admin")
+                    }
+                    else
+                    {
+                        @Html.DisplayName("Người dùng")
+                    }
+
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Account_Id">Chi Tiết</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Account_Id">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

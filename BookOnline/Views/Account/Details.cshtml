@@ -1,0 +1,47 @@
+﻿@model BookOnline.Models.Account
+
+@{
+    ViewData["Title"] = "Chi Tiết";
+}
+
+<h1>Chi Tiết Tài Khoản</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayName("Tên tài khoản")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account_Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Email")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account_Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Số điện thoại")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account_Phone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Loại tài khoản")
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.Account_Type == 1)
+            {
+                @Html.DisplayName("Admin")
+            }
+            else
+            {
+                @Html.DisplayName("Người dùng")
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Quay lại danh sách</a>
+</div>

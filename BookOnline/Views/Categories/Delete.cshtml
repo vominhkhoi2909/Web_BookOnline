@@ -1,0 +1,32 @@
+﻿@model BookOnline.Models.Category
+
+@{
+    ViewData["Title"] = "Xóa";
+}
+
+<h1>Xóa Thông Tin Thể Loại</h1>
+
+<h3>Bạn chắc chắn muốn xóa thể loại này?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayName("Tên thể loại")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Category_Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Tên hệ thống")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Category_DataName)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Category_Id" />
+        <input type="submit" value="Xác Nhận Xóa" class="btn btn-danger" onclick="return confirm('Bạn chắc chắn muốn xóa thể loại này?')"/> |
+        <a asp-action="Index">Quay lại danh sách</a>
+    </form>
+</div>

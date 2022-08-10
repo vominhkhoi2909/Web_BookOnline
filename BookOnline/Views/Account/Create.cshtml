@@ -1,0 +1,63 @@
+﻿@model BookOnline.Models.Account
+
+@{
+    ViewData["Title"] = "Thêm Mới";
+}
+@section ScriptsAlert{
+    <script>
+        setTimeout(function () {
+            $('#msgAlert').fadeOut('slow');
+        }, 2000);
+    </script>
+}
+
+<h1>Thêm Mới Tài Khoản</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @if (ViewBag.CreateError != null)
+        {
+            <div id="msgAlert" class="alert alert-danger" role="alert">@ViewBag.CreateError</div>
+        }
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label class="control-label">Tên tài khoản</label>
+            <input asp-for="Account_Name" class="form-control" />
+            <span asp-validation-for="Account_Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Mật khẩu</label>
+            <input asp-for="Account_Password" type="password" class="form-control" />
+            <span asp-validation-for="Account_Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Xác nhận mật khẩu</label>
+            <input asp-for="Account_ConfirmPassword" type="password" class="form-control" />
+            <span asp-validation-for="Account_ConfirmPassword" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Email</label>
+            <input asp-for="Account_Email" class="form-control" />
+            <span asp-validation-for="Account_Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Số điện thoại</label>
+            <input asp-for="Account_Phone" class="form-control" />
+            <span asp-validation-for="Account_Phone" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Thêm Mới" class="btn btn-primary" />
+        </div>
+    </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Quay lại danh sách</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

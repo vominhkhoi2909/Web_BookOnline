@@ -1,0 +1,96 @@
+﻿@model IEnumerable<BookOnline.Models.Book>
+
+@{
+    ViewData["Title"] = "Sách";
+}
+
+@section ScriptsAlert{
+    <script>
+        setTimeout(function () {
+            $('#msgAlert').fadeOut('slow');
+        }, 2000);
+    </script>
+}
+
+<h1>Danh Sách Sách</h1>
+
+<p>
+    <button class="btn btn-outline-success">
+        <a asp-action="Create">Thêm mới sách</a>
+    </button>    
+</p>
+<table class="table">
+    @if (ViewBag.Success != null)
+    {
+        <div id="msgAlert" class="alert alert-success" role="alert">@ViewBag.Success</div>
+    }
+    @if (ViewBag.Fail != null)
+    {
+        <div id="msgAlert" class="alert alert-danger" role="alert">@ViewBag.Fail</div>
+    }
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Tên sách")
+            </th>
+            <th>
+                @Html.DisplayName("Tác giả")
+            </th>
+            <th>
+                @Html.DisplayName("Nội dung")
+            </th>
+            <th>
+                @Html.DisplayName("Thể loại")
+            </th>
+            <th>
+                @Html.DisplayName("Bìa")
+            </th>
+            <th>
+                @Html.DisplayName("Ngày cập nhật")
+            </th>
+            <th>
+                @Html.DisplayName("NXB")
+            </th>
+            <th>
+                @Html.DisplayName("Lượt xem")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Book_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Book_Author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Book_Content)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Book_Category)
+                </td>
+                <td>
+                    <img src="/images/@item.Book_Img" style="width:50px;height:50px;"/>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Book_Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Book_NXB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Book_View)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Book_Id">Chi Tiết</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Book_Id">Sửa</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Book_Id">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
