@@ -5,6 +5,9 @@ Mô tả dự án:
   + Website khách hàng để người dùng có thể lựa chọn và xem các tựa sách trực tuyến.
   + Website quản trị để người quản lý có thể cập nhật các thông tin về sách để hiển thị lên website khách hàng.
  
+ Dự án:
+ - Cá nhân.
+ 
  Ngôn ngữ sử dụng:
 - C#, HTML, LINQ.
 
