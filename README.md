@@ -22,3 +22,9 @@ Quản lý csdl:
 
 Mô hình:
 - MVC.
+
+Hướng dẫn chạy project:
+- Yêu cầu phải cài SQL Server tối thiếu 2007.
+- Yêu cầu phải cài Visual Studio tối thiểu 2017.
+- Mở Visual -> Bật Package Manage Console -> Gõ lệnh "Update-Database" để khởi tạo DB từ Migration.
+- Run project để chạy dự án.
