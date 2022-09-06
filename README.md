@@ -12,7 +12,7 @@ Mô tả dự án:
 - C#, HTML, LINQ.
 
 Công nghệ sử dụng:
-- Bootstrap.
+- Template.
 - .NET Core.
 - SQL Server.
 - Entity Framework Core.
@@ -28,3 +28,16 @@ Hướng dẫn chạy project:
 - Yêu cầu phải cài Visual Studio tối thiểu 2017.
 - Mở Visual -> Bật Package Manage Console -> Gõ lệnh "Update-Database" để khởi tạo DB từ Migration.
 - Run project để chạy dự án.
+
+Chức năng đang hoạt động:
+- Đăng ký.
+- Đăng nhập.
+- Quản lý sách.
+- Quản lý thể loại.
+- Quản lý tài khoản.
+- Tìm kiếm.
+- Đọc sách.
+
+Chức năng chưa làm:
+- Login với Twitter FB Google.
+- Quên mật khẩu.
